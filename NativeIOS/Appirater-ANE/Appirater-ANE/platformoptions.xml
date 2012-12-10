@@ -1,0 +1,8 @@
+<platform xmlns="http://ns.adobe.com/air/extension/3.4"> 
+    <description >Appirate</description> 
+    <copyright>2012 PalDeveloppers</copyright>
+    <linkerOptions> 
+<!--        <option>-framework CoreMotion</option> -->
+    </linkerOptions> 
+</platform>
+
