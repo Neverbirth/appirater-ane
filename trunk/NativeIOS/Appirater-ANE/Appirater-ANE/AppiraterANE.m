@@ -137,8 +137,8 @@ DEFINE_ANE_FUNCTION(SetDebug) {
 void AppiraterExtInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet)
 {
     *extDataToSet = NULL;
-    *ctxInitializerToSet = &ContextInitializer;
-    *ctxFinalizerToSet = &ContextFinalizer;
+    *ctxInitializerToSet = &AppiraterContextInitializer;
+    *ctxFinalizerToSet = &AppiraterContextFinalizer;
 }
 
 /* AppirateExtFinalizer()
@@ -157,7 +157,7 @@ void AppiraterExtFinalizer(void* extData)
 /* ContextInitializer()
  * The context initializer is called when the runtime creates the extension context instance.
  */
-void ContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
+void AppiraterContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
     /* The following code describes the functions that are exposed by this native extension to the ActionScript code.
      * As a sample, the function isSupported is being provided.
@@ -214,7 +214,7 @@ void ContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, u
  * calls the ExtensionContext instance's dispose() method.
  * If the AIR runtime garbage collector disposes of the ExtensionContext instance, the runtime also calls ContextFinalizer().
  */
-void ContextFinalizer(FREContext ctx) 
+void AppiraterContextFinalizer(FREContext ctx)
 {
     [notifier setContext: NULL];
     [notifier release];
